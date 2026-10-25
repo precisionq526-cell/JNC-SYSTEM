@@ -23,7 +23,11 @@ async function prepareSourcePdf(bytes: Buffer, name: string, type: string, optio
     page.drawImage(image, { x: (page.getWidth() - width) / 2, y: (page.getHeight() - height) / 2, width, height })
   } else if (kind === 'text') {
     pdf.registerFontkit(fontkit)
-    const font = await pdf.embedFont(await fs.readFile(path.join(process.env.WINDIR || 'C:\\Windows', 'Fonts', 'arial.ttf')), { subset: true })
+    const fontBytes = await fs.readFile(path.join(process.env.WINDIR || 'C:\\Windows', 'Fonts', 'arial.ttf')).catch(error => {
+      if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error
+      return fs.readFile(path.join(process.cwd(), 'node_modules', 'pdfjs-dist', 'standard_fonts', 'LiberationSans-Regular.ttf'))
+    })
+    const font = await pdf.embedFont(fontBytes, { subset: true })
     const fontSize = 11, lineHeight = 16, margin = 36
     let page = pdf.addPage(dimensions), y = page.getHeight() - margin - fontSize
     const lines: string[] = []

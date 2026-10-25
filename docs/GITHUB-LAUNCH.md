@@ -4,6 +4,8 @@ Repository: https://github.com/precisionq526-cell/JNC-SYSTEM
 
 Launch validation on 25 October 2026: an export of the staged source installed with `npm ci`, passed 167 tests and lint, and completed a production build with no `.env.local` or production credentials. The dependency audit reported zero known vulnerabilities. The publication scan found no credential patterns or private/runtime artifacts in the prepared Git index.
 
+The first hosted Linux check identified a Windows-only Arial path for plain-text previews. A bundled Liberation Sans fallback preserves Unicode text when Windows Arial is unavailable; the regression suite now includes 168 cases. Windows installations continue using their existing Arial font.
+
 ## What is published
 
 Application source, ordered migrations, synthetic tests, shop design assets, the portable print engine with its license, setup instructions and a CI workflow. Production credentials, customer uploads/proofs, SQLite state, generated PDF.js assets, build output, local reports and workstation-specific settings remain excluded.

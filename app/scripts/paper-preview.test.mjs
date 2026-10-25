@@ -6,6 +6,8 @@ import { pathToFileURL } from 'node:url'
 import ts from 'typescript'
 import { PDFDocument } from 'pdf-lib'
 import sharp from 'sharp'
+import path from 'node:path'
+import * as mupdf from 'mupdf'
 
 const require = createRequire(import.meta.url)
 const url = code => 'data:text/javascript;base64,' + Buffer.from(code).toString('base64')
@@ -51,4 +53,19 @@ test('fitting a preview does not alter the customer PDF or its page count', asyn
   const original = await PDFDocument.load(preview)
   assert.equal(original.getPageCount(), 2)
   assert.deepEqual(original.getPages().map(page => [page.getWidth(), page.getHeight()]), [[400, 600], [800, 600]])
+})
+
+test('plain text preview retains Unicode when the Windows font is unavailable', async () => {
+  const prior = process.env.WINDIR
+  process.env.WINDIR = path.resolve('../tmp/absent-windows-font-directory')
+  try {
+    const text = 'Bundled font: café, niño, résumé — ready to print.'
+    const bytes = await prepareFilePdf(Buffer.from(text), 'unicode.txt', 'text/plain', { 'Paper Size': 'A4' })
+    const pdf = mupdf.Document.openDocument(bytes, 'application/pdf'), page = pdf.loadPage(0), extracted = page.toStructuredText('')
+    try { assert.match(extracted.asText(), /café, niño, résumé — ready to print/); assert.equal(pdf.countPages(), 1) }
+    finally { extracted.destroy(); page.destroy(); pdf.destroy() }
+  } finally {
+    if (prior === undefined) delete process.env.WINDIR
+    else process.env.WINDIR = prior
+  }
 })

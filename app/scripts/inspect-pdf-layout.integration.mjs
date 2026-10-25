@@ -1,0 +1,13 @@
+import fs from 'node:fs/promises'
+const input = await fs.readFile('../tmp/format-preservation/evaluation-original.pdf')
+const form = new FormData(); form.append('file', new File([input], 'evaluation.pdf')); form.append('action', 'inspect')
+const response = await fetch('http://127.0.0.1:3100/api/files/pdf-edit', { method: 'POST', headers: { Origin: 'http://127.0.0.1:3100' }, body: form })
+const data = await response.json(); if (!response.ok) throw Error(JSON.stringify(data))
+await fs.writeFile('../tmp/format-preservation/inspection.json', JSON.stringify(data, null, 2))
+console.log(JSON.stringify({ pages: data.pages.length, spans: data.pages[0].spans.length, table: data.pages[0].spans.filter(s=>/Giga|October|A1|Evaluation/.test(s.text)) }, null, 2))
+const span = data.pages[0].spans.find(s=>s.text.includes('1. GigaMare'))
+const save = new FormData(); save.append('file', new File([input], 'evaluation.pdf')); save.append('action', 'save'); save.append('edits', JSON.stringify([{ id:span.id,text:'1. GigaMare Inc. EDITED' }]))
+const saved = await fetch('http://127.0.0.1:3100/api/files/pdf-edit',{method:'POST',headers:{Origin:'http://127.0.0.1:3100'},body:save})
+if (!saved.ok) throw Error(await saved.text())
+await fs.writeFile('../tmp/format-preservation/evaluation-edited.pdf',Buffer.from(await saved.arrayBuffer()))
+console.log('Saved original-layout edit.')

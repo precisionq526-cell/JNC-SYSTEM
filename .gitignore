@@ -1,0 +1,51 @@
+# Local credentials and workstation data
+.env
+.env.*
+!.env.example
+**/.runtime/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.pem
+*.key
+*.pfx
+*.p12
+*.log
+*.tsbuildinfo
+
+# Dependencies and generated builds
+**/node_modules/
+**/.next/
+**/out/
+**/coverage/
+**/.vercel/
+**/.temp/
+**/.cache/
+/app/supabase/.branches/
+
+# Local verification artifacts and uploaded/customer files
+**/output/
+**/tmp/
+/PROGRESS.md
+**/KioskFiles/
+**/uploads/
+**/print-receipts/
+**/payment-proofs/
+**/student-proofs/
+
+# Generated PDF.js assets are restored by npm run dev/build
+/app/public/scripts/pdfjs/
+/app/vendor/sumatra/SumatraPDF-settings.txt
+/app/public/services-flyer-test.png
+/app/docs/*.pdf
+/app/rewrite.js
+/app/rewrite_orders.js
+
+# Editor/OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+

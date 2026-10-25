@@ -1,0 +1,130 @@
+.shell { position: fixed; inset: 0; z-index: 12000; background: #f1f3f6; color: #12233f; display: flex; flex-direction: column; font-family: Arial, sans-serif; }
+.header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 16px 24px; border-bottom: 1px solid #d8dee7; background: white; }
+.header h2 { font-size: 16px; font-weight: 600; margin: 0; overflow-wrap: anywhere; }
+.header p { color: #667080; font-size: 12px; margin: 6px 0 0; }
+.actions { display: flex; align-items: center; gap: 10px; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 10px 16px; min-height: 40px; border: 1px solid #cdd4df; border-radius: 8px; background: white; color: #12233f; font-size: 13px; cursor: pointer; }
+.primary { background: #a5242a; color: white; border-color: #a5242a; }
+.button:disabled { cursor: default; opacity: .6; }
+.button:focus-visible { outline: 3px solid #c68286; outline-offset: 2px; }
+.body { flex: 1; min-height: 0; overflow: auto; padding: 24px; }
+.notice { margin: 0; font-size: 13px; color: #667080; padding: 24px; }
+.error { background: #fff1f1; color: #a5242a; padding: 14px 24px; font-size: 13px; margin: 0; }
+.fields { max-width: 1000px; margin: auto; background: white; padding: 24px; border: 1px solid #d8dee7; border-radius: 10px; }
+.field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; font-size: 12px; font-weight: 600; }
+.field input, .field textarea, .field select { background: white; color: #12233f; font: 14px/1.5 Arial, sans-serif; border: 1px solid #cdd4df; border-radius: 6px; padding: 10px; width: 100%; }
+.field textarea { resize: vertical; min-height: 60px; }
+.group { margin: 24px 0 16px; font-size: 15px; }
+.group:first-child { margin-top: 0; }
+.toolbar { display: flex; gap: 16px; align-items: end; flex-wrap: wrap; padding: 16px 24px; background: white; border-bottom: 1px solid #d8dee7; }
+.toolbar .field { margin-bottom: 0; }
+.pdfLayout { display: flex; gap: 24px; align-items: flex-start; justify-content: center; }
+.page { position: relative; line-height: 0; cursor: crosshair; box-shadow: 0 2px 12px #12233f22; flex-shrink: 0; }
+.page canvas { display: block; max-width: 100%; height: auto; }
+.annotation { position: absolute; white-space: pre-wrap; line-height: 1.2; pointer-events: none; color: black; }
+.annotationList { width: 260px; min-width: 220px; background: white; padding: 18px; border-radius: 8px; }
+.annotationList h3 { font-size: 14px; margin: 0 0 14px; }
+.annotationList li { font-size: 12px; margin-bottom: 14px; overflow-wrap: anywhere; }
+.photoBody { position: relative; flex: 1; min-height: 0; background: white; }
+.textArea { width: 100%; min-height: 60vh; resize: vertical; padding: 18px; font: 14px/1.6 monospace; border: 1px solid #cdd4df; border-radius: 6px; background: white; color: #12233f; }
+.documentLayout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 500px); gap: 24px; max-width: 1500px; margin: auto; align-items: start; }
+.documentLayout .fields { width: 100%; min-width: 0; }
+.editorPreview { background: #e4e8ed; border-radius: 10px; padding: 18px; position: sticky; top: 0; }
+.editorPreview h3 { margin: 0 0 8px; font-size: 14px; }
+.editorPreview p { margin: 0 0 14px; color: #667080; font-size: 12px; }
+.sheetTabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.button[aria-pressed=true] { background: #fbe6e7; color: #a5242a; border-color: #a5242a; }
+.cellGrid { overflow: auto; }
+.cellGrid table { border-collapse: collapse; width: max-content; min-width: 100%; }
+.cellGrid th, .cellGrid td { border: 1px solid #cdd4df; min-width: 130px; padding: 0; }
+.cellGrid th { background: #eaf0f3; padding: 8px; font-size: 12px; min-width: 40px; }
+.cellGrid input { width: 100%; min-width: 130px; padding: 10px; color: #12233f; background: white; font: 13px Arial, sans-serif; border: 0; }
+.cellGrid input:focus { outline: 2px solid #a5242a; outline-offset: -2px; }
+.formatLabel { font-size: 12px; min-width: 130px; align-self: center; }
+.documentHeader { padding: 16px 24px; background: #fff; }
+.documentIdentity { display: flex; align-items: center; gap: 13px; min-width: 0; }
+.documentIcon { display: grid; place-items: center; width: 43px; height: 47px; background: #eef3fc; color: #315b9a; border: 1px solid #dce5f5; border-radius: 9px; flex-shrink: 0; }
+.documentIdentity h2 { font-size: 16px; font-weight: 600; line-height: 1.5; }
+.documentIdentity p { display: flex; align-items: center; gap: 8px; font-size: 11px; line-height: 1.6; flex-wrap: wrap; margin-top: 4px; }
+.documentBadge { font-size: 9px; font-weight: 700; letter-spacing: .04em; color: #315b9a; }
+.documentGuidance { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 24px; background: #f7f9fc; border-bottom: 1px solid #e2e7ef; color: #63738a; font-size: 11px; line-height: 1.7; }
+.documentGuidance > svg { flex-shrink: 0; }
+.documentFooter { display: flex; align-items: center; justify-content: space-between; gap: 15px; font-size: 11px; color: #627086; padding: 10px 24px; background: white; border-top: 1px solid #dce2eb; }
+.openingDocument { flex: 1; display: grid; place-items: center; padding: 32px 20px; overflow: auto; }
+.openingCard { width: min(500px, 100%); display: flex; align-items: center; flex-direction: column; text-align: center; gap: 18px; background: white; border: 1px solid #dce2eb; border-radius: 16px; padding: 40px 32px; box-shadow: 0 8px 35px #12233f06; color: #315b9a; }
+.openingCard h2 { font-size: 21px; font-weight: 600; color: #12233f; line-height: 1.5; }
+.openingCard p { color: #627086; font-size: 13px; line-height: 1.85; }
+.openingCard small { color: #8994a5; font-size: 11px; }
+.openingCard .actions { flex-wrap: wrap; justify-content: center; }
+.pdfToolbar { display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:10px 20px; background:#fff; border-bottom:1px solid #d8dee7; font-size:12px; }
+.pdfToolbar .button { padding:7px 10px; min-height:34px; }
+.pdfToolbar label { display:flex; align-items:center; gap:5px; }
+.pdfToolbar input { width:56px; border:1px solid #cdd4df; padding:6px; border-radius:5px; color:#12233f; background:#fff; }
+.pdfToolbar input[type=color] { width:35px; height:30px; padding:2px; }
+.pdfFont { min-width:90px; max-width:220px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.pdfPagination { margin-left:auto; display:flex; align-items:center; gap:8px; }
+.pdfTextBar { display:flex; align-items:center; flex-wrap:wrap; gap:8px; padding:10px 20px; background:#f6f8fc; border-bottom:1px solid #d8dee7; font-size:12px; }
+.pdfTextBar > input { flex:1; min-width:150px; background:white; border:1px solid #9eb2d2; padding:10px; border-radius:6px; font-size:14px; color:#12233f; }
+.pdfWorkspace { flex:1; min-height:0; overflow:auto; padding:24px; }
+.pdfPage { position:relative; background:white; margin:0 auto; box-shadow:0 2px 14px #12233f22; flex-shrink:0; }
+.pdfPage canvas { display:block; max-width:none; }
+.pdfTextTarget { position:absolute; padding:0; margin:0; border:0; min-height:0!important; border-radius:0; background:transparent; cursor:text; }
+.pdfTextTarget:hover { background:#4989df18; outline:1px solid #4989df88; }
+.pdfTextTarget[aria-pressed=true] { outline:2px solid #4287df; background:#4287df20; }
+.pdfTextTarget:focus-visible { outline:2px solid #315b9a; }
+.wordSourceContainer { min-width:0; }
+.wordImage { position:relative; max-width:100%; overflow:hidden; vertical-align:middle; }
+.wordPart { border-bottom:1px dashed #ccd1d9; padding:12pt 0; margin-bottom:12pt; }
+.wordPart > small { font:9pt Arial,sans-serif; color:#687384; display:block; margin-bottom:8pt; }
+.logoRepair { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:14px 24px; background:#fff8e6; border-bottom:1px solid #ead9a2; font:13px/1.5 Arial,sans-serif; }
+.logoRepair p { color:#766238; font-size:12px; margin-top:4px; }
+.logoRepair .button { flex-shrink:0; }
+.sheetContainer { min-width:0; }
+.spreadsheetLayout { grid-template-columns:minmax(0,1fr) minmax(280px,400px); max-width:1700px; }
+.worksheet { background:#fff; border:1px solid #bec8c3; border-radius:8px; overflow:hidden; color:#192b23; font:13px/1.4 Calibri,Arial,sans-serif; }
+.sheetTitle { display:flex; justify-content:space-between; align-items:center; gap:18px; background:#217346; color:white; padding:12px 16px; }
+.sheetTitle strong { font-size:15px; }
+.sheetTitle > span { display:flex; gap:7px; align-items:center; font-size:11px; }
+.formulaBar { display:flex; align-items:center; gap:10px; padding:8px; background:#f3f5f4; border-bottom:1px solid #ccd5d0; }
+.formulaBar form { display:flex; width:132px; flex-shrink:0; border:1px solid #b6c1ba; background:white; border-radius:3px; }
+.formulaBar input { min-width:0; padding:7px 9px; background:white; color:#192b23; font:13px Calibri,Arial,sans-serif; border:1px solid #b6c1ba; border-radius:3px; }
+.formulaBar > input { flex:1; width:100%; }
+.formulaBar form input { width:85px; border:0; }
+.formulaBar form button { width:40px; font-size:11px; border-left:1px solid #d1d9d4; }
+.formulaBar > span { color:#68786d; font-style:italic; font-size:16px; }
+.worksheetGrid { overflow:auto; max-height:65dvh; min-height:280px; background:white; }
+.worksheetGrid table { table-layout:fixed; border-collapse:separate; border-spacing:0; width:max-content; min-width:100%; }
+.worksheetGrid :is(th,td) { border-right:1px solid #d5dbd7; border-bottom:1px solid #d5dbd7; padding:0; min-width:0; }
+.worksheetGrid th { background:#eef1ef; color:#58645c; font-size:12px; font-weight:400; text-align:center; position:sticky; z-index:1; left:0; }
+.worksheetGrid thead th { top:0; z-index:3; height:26px; }
+.worksheetGrid thead th:first-child { z-index:4; }
+.worksheetGrid th[aria-selected=true] { background:#d8eadf; color:#17683c; font-weight:700; }
+.worksheetGrid td { height:25px; overflow:hidden; vertical-align:middle; position:relative; cursor:cell; font:11pt Calibri,Arial,sans-serif; background:#fff; }
+.worksheetGrid td > span { display:block; overflow:hidden; padding:3px 5px; min-height:24px; text-overflow:ellipsis; }
+.worksheetGrid .activeCell { outline:2px solid #217346; outline-offset:-2px; z-index:2; }
+.worksheetGrid td > input { display:block; width:100%; min-width:0; height:100%; min-height:26px; padding:3px 5px; background:inherit; color:inherit; font:inherit; text-align:inherit; border:0; outline:none; }
+.sheetBottom { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; padding:8px; border-top:1px solid #ccd5d0; background:#f3f5f4; }
+.sheetBottom .sheetTabs { margin:0; gap:5px; }
+.sheetTabs button { min-height:32px; padding:6px 14px; border:1px solid transparent; border-radius:3px; font-size:12px; }
+.sheetTabs button[aria-pressed=true] { border-color:#c8d6cd; border-bottom:2px solid #217346; background:white; color:#17683c; font-weight:700; }
+.sheetPaging { display:flex; align-items:center; gap:9px; font-size:11px; }
+.sheetPaging button { padding:6px; border:1px solid #c7d1ca; border-radius:4px; background:white; }
+.sheetPaging button:disabled { opacity:.4; }
+.sheetHint { font-size:11px; line-height:1.6; padding:10px 12px; color:#637268; border-top:1px solid #e1e7e3; }
+.sheetError { margin:0; padding:10px 14px; font-size:12px; color:#9c262c; background:#fff0f1; }
+@media(max-width:1100px) { .spreadsheetLayout { grid-template-columns:1fr; } .logoRepair { flex-wrap:wrap; } }
+.wordSourceScroller { overflow:auto; padding:12px; background:#e5e9f0; border-radius:8px; }
+.wordSourcePage { background:#fff; color:#111; min-height:850px; margin:auto; font:11pt/1.25 Calibri,Arial,sans-serif; box-shadow:0 2px 10px #12233f22; }
+.wordParagraph { min-height:1em; white-space:pre-wrap; overflow-wrap:break-word; line-height:1.25; }
+.wordRun { min-width:2px; outline:none; border-radius:1px; }
+.wordRun:hover { background:#3375d910; }
+.wordRun:focus { background:#3375d917; box-shadow:0 0 0 1px #3375d966; }
+.wordRun:empty::before { content:'\00a0'; }
+.wordTable { table-layout:fixed; border-collapse:collapse; width:100%; margin:0; color:inherit; }
+.wordTable td { border:1px solid #777; padding:2pt 5pt; vertical-align:top; overflow-wrap:anywhere; }
+.wordTable .wordParagraph { margin:0; }
+@media(max-width:700px) { .pdfToolbar,.pdfTextBar { padding:9px 12px; } .pdfWorkspace { padding:15px; } .pdfFont { min-width:70px; max-width:110px; } .pdfPagination { margin-left:0; } }
+@media(max-width:700px) { .documentHeader .actions { width:100%; flex-wrap:wrap; gap:7px; } .documentHeader .button { flex:1; font-size:11px; padding:9px; } .documentGuidance { align-items:flex-start; padding:10px 14px; font-size:10px; } .documentFooter { padding:10px 14px; font-size:10px; } }
+@media(max-width: 950px) { .documentLayout { grid-template-columns: 1fr; } .editorPreview { position: static; max-width: 550px; width: 100%; margin: auto; } }
+@media(max-width: 700px) { .header, .toolbar, .body { padding: 14px; } .pdfLayout { flex-direction: column; align-items: center; } .annotationList { width: 100%; } .fields { padding: 16px; } }
+

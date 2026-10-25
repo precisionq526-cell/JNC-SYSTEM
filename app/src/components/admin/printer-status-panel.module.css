@@ -1,0 +1,41 @@
+.panel { color: #12233f; }
+.heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.title { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.03em; }
+.description { margin: 7px 0 0; font-size: 12px; color: #667080; max-width: 660px; line-height: 1.6; }
+.scanButton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; background: #a5242a; color: white; border: 1px solid #a5242a; border-radius: 8px; white-space: nowrap; cursor: pointer; }
+.scanButton:hover { background: #861d22; }
+.scanButton:disabled { opacity: .7; cursor: progress; }
+.scanButton:focus-visible { outline: 3px solid #c68286; outline-offset: 3px; }
+.summary { color: #667080; font-size: 12px; margin: 18px 0 14px; }
+.empty { border: 1px dashed #ced5df; border-radius: 10px; padding: 28px 18px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; color: #667080; background: #fafbfc; font-size: 13px; }
+.empty p { margin: 0; }
+.error { color: #a5242a; background: #fff2f2; padding: 16px; border: 1px solid #e8c4c6; border-radius: 8px; font-size: 13px; }
+.card { border: 1px solid #e8e6e1; background: white; box-shadow: 0 1px 3px #12233f08; }
+.printerName { display: flex; align-items: flex-start; gap: 8px; }
+.printerName svg { flex-shrink: 0; margin-top: 1px; }
+.printerName h3 { margin: 0; font-size: 13px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
+.driver { font-size: 11px; color: #667080; margin: 10px 0 16px; overflow-wrap: anywhere; }
+.defaultBadge { display: inline-block; color: #12233f; background: #eef2f7; border-radius: 4px; padding: 3px 6px; font-size: 10px; margin-top: 7px; }
+.detail { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 8px; font-size: 11px; }
+.detail > span:first-child { color: #667080; flex-shrink: 0; }
+.detail > span:last-child { text-align: right; }
+.state { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; font-weight: 600; }
+.state i { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.note { color: #667080; font-size: 11px; line-height: 1.6; margin: 14px 0 0; }
+.virtualPrinters { font-size: 12px; color: #667080; margin-top: 16px; }
+.virtualPrinters summary { cursor: pointer; }
+.virtualPrinters ul { margin: 9px 0 0; padding-left: 22px; }
+.virtualPrinters li { padding: 3px 0; }
+.tableWrap { overflow-x: auto; }
+.table { width: 100%; text-align: left; font-size: 12px; border-collapse: collapse; }
+.table th { white-space: nowrap; }
+.table td { vertical-align: top; min-width: 100px; }
+.table td:first-child { min-width: 210px; }
+.table td:last-child { min-width: 250px; max-width: 420px; line-height: 1.6; }
+.table strong, .table small { display: block; }
+.table small { color: #667080; margin-top: 6px; }
+.spinner { animation: printer-scan-spin 1s linear infinite; }
+@keyframes printer-scan-spin { to { transform: rotate(360deg); } }
+@media (max-width: 600px) { .heading { gap: 12px; } .scanButton { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+

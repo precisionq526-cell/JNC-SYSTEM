@@ -1,0 +1,36 @@
+.shell { color: var(--jnc-ink); }
+.main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 48px 24px 28px; }
+.content { width: 100%; max-width: 460px; }
+.card { padding: 36px; border-radius: 18px; box-shadow: 0 8px 32px #15253f06; }
+.heading { margin-bottom: 28px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 7px; color: var(--jnc-red); background: #fbedee; border-radius: 6px; padding: 5px 9px; font-size: 11px; font-weight: 500; margin-bottom: 18px; }
+.heading h1 { font-size: 28px; font-weight: 700; line-height: 1.25; letter-spacing: -.035em; color: var(--jnc-navy); margin-bottom: 10px; }
+.subtitle { font-size: 12px; line-height: 1.8; color: var(--jnc-muted); max-width: 340px; }
+.form { display: flex; flex-direction: column; gap: 22px; }
+.field label { font-size: 12px; font-weight: 500; }
+.field input { min-height: 48px; padding: 12px 14px; font-size: 13px; border-radius: 8px; background: #fafbfc; }
+.field input:focus { background: white; }
+.field input:disabled { opacity: .65; }
+.passwordField { position: relative; }
+.passwordField input { padding-right: 52px; }
+.passwordToggle { position: absolute; top: 2px; right: 3px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 6px; color: #778397; }
+.passwordToggle:hover:not(:disabled) { color: var(--jnc-navy); background: #edf0f4; }
+.passwordToggle:focus-visible { outline-offset: 0; }
+.submit { min-height: 48px; width: 100%; font-size: 13px; margin-top: 4px; }
+.cardFooter { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--jnc-border); text-align: center; }
+.cardFooter p { font-size: 11px; color: var(--jnc-muted); line-height: 1.8; }
+.cardFooter a { color: var(--jnc-red); font-weight: 600; }
+.cardFooter a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.backLink { display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 11px; color: var(--jnc-muted); margin-top: 22px; min-height: 44px; width: fit-content; margin-inline: auto; border-radius: 6px; }
+.backLink:hover { color: var(--jnc-navy); }
+.error { background: #fbedee; border: 1px solid #e7c2c6; color: #882127; padding: 13px 15px; border-radius: 8px; font-size: 12px; line-height: 1.8; margin-bottom: 24px; }
+.skeleton { width: 100%; background: #edf0f3; border-radius: 7px; }
+.loadingCard { min-height: 445px; }
+.spinner { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 600px) {
+  .main { padding: 32px 16px 20px; }
+  .card { padding: 28px 24px; border-radius: 16px; }
+  .heading h1 { font-size: 26px; }
+}
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }

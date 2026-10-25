@@ -1,0 +1,59 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=24.18.0 <25"
+  },
+  "scripts": {
+    "predev": "node scripts/sync-editor-assets.mjs",
+    "dev": "next dev --webpack --hostname 127.0.0.1 --port 3100",
+    "prebuild": "node scripts/sync-editor-assets.mjs",
+    "build": "next build --webpack",
+    "test": "node --test scripts/*.test.mjs scripts/queue-model.test.cjs",
+    "start": "next start --hostname 127.0.0.1 --port 3100",
+    "lint": "eslint",
+    "sync:kiosk": "node scripts/kiosk-pull-sync.mjs",
+    "bridge:bluetooth": "node scripts/bluetooth-bridge.mjs",
+    "bridge:hardware": "node scripts/hardware-bridge.mjs"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.105.4",
+    "@tanstack/react-query": "^5.100.10",
+    "@types/qrcode": "^1.5.6",
+    "date-fns": "^4.1.0",
+    "dotenv": "^17.4.2",
+    "filerobot-image-editor": "^4.8.1",
+    "jsqr": "^1.4.0",
+    "jszip": "^3.10.2",
+    "lucide-react": "^1.14.0",
+    "mupdf": "1.28.1",
+    "next": "16.4.3",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "6.4.299",
+    "qrcode": "^1.5.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-hook-form": "^7.75.0",
+    "react-hot-toast": "^2.6.0",
+    "recharts": "^3.8.1",
+    "sharp": "0.35.5",
+    "zod": "4.6.6",
+    "zustand": "^5.0.13"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.9",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@xmldom/xmldom": "^0.9.12",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
